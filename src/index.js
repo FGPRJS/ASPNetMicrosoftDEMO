@@ -9,6 +9,8 @@ var username = new Date().getTime();
 var connection = new signalR.HubConnectionBuilder()
     .withUrl("/hub")
     .build();
+//signalR이라는 서비스를 사용하는데, /hub라는 URL을 가지고 소켓을 연결한다.
+//signalR 서비스로부터 messageReceived 이벤트를 받으면 함수를 수행한다.
 connection.on("messageReceived", function (username, message) {
     var messages = document.createElement("div");
     messages.innerHTML =
